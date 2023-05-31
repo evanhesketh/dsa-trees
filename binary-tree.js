@@ -13,7 +13,18 @@ class BinaryTreeNode {
    * incomplete node-- that is, the length of the shortest path from the root to
    * a node with less than two children. */
   minDepthToIncompleteNode() {
+    const toVisitQueue = [this];
+    let nodeCount = 1;
 
+    while (toVisitQueue.length) {
+      const current = toVisitQueue.shift();
+
+      if (current.left === null || current.right === null) {
+        return depth;
+      }
+
+      for (let )
+    }
   }
 
   /** maxDepth(): return the maximum depth from the invoking node -- that is,
