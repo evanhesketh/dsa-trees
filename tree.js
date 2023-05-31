@@ -11,7 +11,18 @@ class TreeNode {
   /** sumValues(): add up all values of invoking node and its children.
    * Returns sum as an integer. */
   sumValues() {
+    const toVisitStack = [this];
+    let sum = 0;
 
+    while (toVisitStack.length) {
+      let current = toVisitStack.pop();
+      sum += current.val;
+
+      for (let child of current.children) {
+        toVisitStack.push(child);
+      }
+    }
+    return sum;
   }
 
   /** countEvens(): starting from the invoking node and moving through its
@@ -36,7 +47,9 @@ class Tree {
 
   /** sumValues(): add up all values in the tree. */
   sumValues() {
+    if (this.root === null) return 0;
 
+    return this.root.sumValues();
   }
 
   /** countEvens(): count all nodes in the tree that have even values. */
